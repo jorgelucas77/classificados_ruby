@@ -3,6 +3,8 @@
   <head>
     <title>Classificados JL</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
     <%= favicon_link_tag asset_path('logo.png') %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -12,24 +14,37 @@
   </head>
 
   <body>
-    <p>
-      <%= flash.notice %>
-      <%= flash.alert %>
-    </p>
+  <div class="container">
+    <div class="shadow-sm p-3 mb-5 bg-body rounded">
+   <h1><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="blue" class="bi bi-cart-dash" viewBox="0 0 16 16">
+  <path d="M6.5 7a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4z"/>
+  <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+</svg>
+       <%= t("title.main")%> </h1>
+    </div>
+    <div class="border border-white">
+      <p>
+        <%= flash.notice %>
+         <%= flash.alert %>
+      </p>
+    </div>
 
-    <nav>
+    <nav class="navbar navbar-light bg-light">
       <% if user_signed_in? %>
-        <%= button_to t("menu.logout"), sign_out_sessions_path, method: :delete %>
-        <%= link_to t("menu.new_ad"), new_ad_path %>
+        <%= link_to t("menu.home"),  root_path, :class => "btn btn-sm btn-outline-secondary"  %>
+        <%= link_to t("menu.new_ad"), new_ad_path, :class => "btn btn-sm btn-outline-secondary"  %>
+        <%= button_to  t("menu.logout") , sign_out_sessions_path, method: :delete, :class => "btn btn-sm btn-outline-danger" %>
       <% else %>
-        <%= link_to t("menu.signup"), new_user_path %>
-        <%= link_to t("menu.signin"), new_session_path %>
+        <%= link_to t("menu.signup"), new_user_path, :class => "btn btn-sm btn-outline-secondary" %>
+        <%= link_to t("menu.signin"), new_session_path, :class => "btn btn-sm btn-outline-secondary" %>
       <% end %>
     </nav>
     <%= yield %>
     
+    </div>
+
   </body>
-  <footer>
+  <footer class="fixed-bottom">
     <p>Desenvolvido por <a href=mailto:jorgelucas77@gmail.com>Jorge Lucas</a></p>
   </footer>
 </html>

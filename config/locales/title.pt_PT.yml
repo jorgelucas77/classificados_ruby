@@ -2,3 +2,11 @@ pt-PT:
   title:
     signup: "Registo"
     error: "Erro ao guardar"
+    ad: "Anúncios"
+    edit: "Editar"
+    ok: "Anúncio criado com sucesso"
+    editad: "Editar Anúncio"
+    newad: "Novo Anúncio"
+    editok: "Anúncio editado com sucesso"
+    home: "Home"
+    main: "JL Classificados [e inclassificados]"

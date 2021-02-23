@@ -1,13 +1,27 @@
 class AdsController < ApplicationController
-    before_action : require_logged_user
+    before_action :require_logged_user
     def new
         @ad = Ad.new
+    end
+
+    def edit
+        @ad = current_user.ads.find(params[:id])
     end
 
     def create
         @ad = current_user.ads.build(ad_params)
         if @ad.save
-            redirect_to root_path, notice: "Anúncio criado com sucesso"
+            redirect_to root_path, notice: t("title.ok")
+        end
+    end
+
+    def update
+        @ad = current_user.ads.find(params[:id])
+
+        if @ad.update(ad_params)
+            redirect_to edit_ad_path(@ad), notice: t("title.editok")
+        else
+            render :edit
         end
     end
 

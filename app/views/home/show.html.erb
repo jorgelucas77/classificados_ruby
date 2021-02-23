@@ -1,8 +1,9 @@
-<h1>Anúncios </h1>
-<div>
+<div class="container p-3 my-3 border">
+    <h1><%= t("title.ad") %></h1>
     <ul>
         <% @ads.each do |ad| %>
         <li>
+            <p><%= link_to t("title.edit"), edit_ad_path(ad) %></p>
             <p><strong><%= ad.title %></strong></p>
             <p><%= ad.description %></p>
             <p><%= ad.price %></p>
