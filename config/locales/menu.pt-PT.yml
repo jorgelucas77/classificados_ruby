@@ -1,0 +1,7 @@
+pt-PT:
+  menu: 
+    signup: "Registre-se"
+    signin: "Entrar"
+    logout: "Logout"
+    new_ad: "Novo anúncio"
+    

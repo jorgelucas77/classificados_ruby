@@ -1,0 +1,12 @@
+pt-PT:
+  activerecord:
+    attributes:
+      ad:
+        title: "Título"
+        description: "Descrição"
+        price: "Preço"
+      user:
+        name: "Nome"
+        email: "E-mail"
+        password: "Password"
+        password_confirmation: "Confirmação de Password"
